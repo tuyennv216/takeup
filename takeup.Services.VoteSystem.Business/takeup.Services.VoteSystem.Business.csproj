@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Management\Vote\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\takeup.Infrastructure.CQRS\takeup.Infrastructure.CQRS.csproj" />
+    <ProjectReference Include="..\takeup.Services.VoteSystem.Domain\takeup.Services.VoteSystem.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

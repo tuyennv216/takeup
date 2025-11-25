@@ -1,0 +1,6 @@
+@takeup.Services.VoteSystem.Api.Web_HostAddress = http://localhost:5169
+
+GET {{takeup.Services.VoteSystem.Api.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
