@@ -21,7 +21,7 @@ namespace takeup.Configuration.Svc.CronJobs
 			q.AddTrigger(t => t
 				.WithIdentity("commit-database-trigger")
 				.ForJob("commit-database-job")
-				.WithCronSchedule("0 0/5 * * * ?")); // 5 phút một lần
+				.WithCronSchedule("0 0/1 * * * ?")); // 5 phút một lần
 
 			q.AddTrigger(t => t
 				.WithIdentity("analyst-vote-trigger")

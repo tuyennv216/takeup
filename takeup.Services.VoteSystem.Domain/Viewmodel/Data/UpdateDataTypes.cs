@@ -7,7 +7,7 @@ namespace takeup.Services.VoteSystem.Domain.Viewmodel.Data
 	{
 		public class Request : CQRSResultCommandBase<Response>
 		{
-			public required List<TopicItem> Data { get; set; }
+			public required List<DataItem> Data { get; set; }
 		}
 
 		public class Response
@@ -16,7 +16,7 @@ namespace takeup.Services.VoteSystem.Domain.Viewmodel.Data
 			public long AnswerAt { get; set; }
 		}
 
-		public class TopicItem
+		public class DataItem
 		{
 			public int DataId { get; set; }
 			public required string Message { get; set; }
@@ -31,13 +31,13 @@ namespace takeup.Services.VoteSystem.Domain.Viewmodel.Data
 					.NotEmpty().WithMessage("Ít nhất một mục dữ liệu phải được cung cấp.");
 
 				RuleForEach(x => x.Data)
-					.SetValidator(new TopicItemValidator());
+					.SetValidator(new DataItemValidator());
 			}
 		}
 
-		public class TopicItemValidator : AbstractValidator<TopicItem>
+		public class DataItemValidator : AbstractValidator<DataItem>
 		{
-			public TopicItemValidator()
+			public DataItemValidator()
 			{
 				RuleFor(x => x.DataId)
 					.GreaterThan(0).WithMessage("DataId phải lớn hơn 0.");

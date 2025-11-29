@@ -24,8 +24,8 @@ namespace takeup.Services.VoteSystem.Business.Management.Vote
 
 			var result = new GetVotesTypes.Response
 			{
-				AnswerId = 1,
-				AnswerAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
+				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
 				Items = topicIds.Select(topicId => new GetVotesTypes.TopicVotesItem
 				{
 					TopicId = topicId,

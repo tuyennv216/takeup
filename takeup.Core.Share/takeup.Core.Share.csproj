@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\takeup.Core.Ultilities\takeup.Core.Ultilities.csproj" />
+    <ProjectReference Include="..\takeup.Services.VoteSystem.Domain\takeup.Services.VoteSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\takeup.Configuration.Svc\takeup.Configuration.Svc.csproj" />
+    <ProjectReference Include="..\takeup.Services.VoteSystem.Domain\takeup.Services.VoteSystem.Domain.csproj" />
   </ItemGroup>
 
 </Project>

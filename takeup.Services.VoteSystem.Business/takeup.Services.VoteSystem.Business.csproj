@@ -11,10 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Management\Vote\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\takeup.Core.Share\takeup.Core.Share.csproj" />
+    <ProjectReference Include="..\takeup.Core.Ultilities\takeup.Core.Ultilities.csproj" />
     <ProjectReference Include="..\takeup.Infrastructure.CQRS\takeup.Infrastructure.CQRS.csproj" />
     <ProjectReference Include="..\takeup.Services.VoteSystem.Domain\takeup.Services.VoteSystem.Domain.csproj" />
   </ItemGroup>
