@@ -31,7 +31,7 @@
   //import { onMounted, ref } from 'vue'
 
   import { redirect } from '@/utilities/redirect/redirectUtil'
-  import { useLayoutState } from '@/utilities/storage/LayoutState'
+  import { useLayoutState } from '@/data/appstate/LayoutState'
   const layoutStore = useLayoutState()
 
 </script>

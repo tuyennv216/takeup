@@ -1,7 +1,7 @@
 <template>
   <AppFooter>
     <template v-slot:left>
-      <BtnFooter min width="28px"><q-icon name="mdi-home" /></BtnFooter>
+      <BtnFooter min width="28px"><q-icon name="mdi-cog" /></BtnFooter>
     </template>
 
     <template v-slot:middle>
@@ -20,7 +20,7 @@
   import BtnFooter from '@/styles/components/units/inputs/BtnFooter.vue'
 
   import { Dialog } from 'quasar'
-  import About from '@/styles/components/features/about/About.vue'
+  import About from '@/styles/components/groups/about/About.vue'
 
   const openAbout = () => {
     Dialog.create({

@@ -1,4 +1,4 @@
-// src/router/index.ts
+// src/routers/AppRouter.ts
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -9,14 +9,9 @@ const router = createRouter({
       children: [
         {
           path: '/',
-          name: 'Homepage',
-          component: () => import('@/pages/HomePage.vue'),
+          name: 'Topic Management',
+          component: () => import('@/pages/topic/TopicManagement.vue'),
         },
-        {
-          path: '/about',
-          name: 'about',
-          component: () => import('@/pages/AboutPage.vue')
-        }
       ],
     },
   ]

@@ -10,12 +10,10 @@ namespace takeup.Services.VoteSystem.Business.Management.Data
 	public class GetDataMessageHandler : CQRSResultHandlerBase<GetDataMessageTypes.Request, GetDataMessageTypes.Response>
 	{
 		private readonly VoteSystemReadDbContext _voteSystemReadDbContext;
-		private readonly VoteContext _voteContext;
 
-		public GetDataMessageHandler(VoteSystemReadDbContext voteSystemReadDbContext, VoteContext voteContext)
+		public GetDataMessageHandler(VoteSystemReadDbContext voteSystemReadDbContext)
 		{
 			this._voteSystemReadDbContext = voteSystemReadDbContext;
-			this._voteContext = voteContext;
 		}
 
 		public override async Task<GetDataMessageTypes.Response> Handle(GetDataMessageTypes.Request request, CancellationToken cancellationToken)

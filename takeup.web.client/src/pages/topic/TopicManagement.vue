@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  import TopicTable from '@/styles/components/features/topic/TopicTable.vue'
+  import TopicTable from '@/features/topic/TopicTable.vue'
 </script>
 
 <style scoped>

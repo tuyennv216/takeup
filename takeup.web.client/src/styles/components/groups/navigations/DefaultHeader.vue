@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
   import { useRouter } from 'vue-router'
-  import { useLayoutState } from '@/utilities/storage/LayoutState'
+  import { useLayoutState } from '@/data/appstate/LayoutState'
 
   const router = useRouter()
 

@@ -23,7 +23,7 @@ export const useLayoutState = defineStore('layout', {
     },
   },
   persist: {
-    key: 'layout-state',
+    key: 'app.layout',
     storage: localStorage,
     pick: [
       'menuOpened',

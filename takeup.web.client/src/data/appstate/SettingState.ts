@@ -16,7 +16,7 @@ export const useSettingState = defineStore('setting', {
   }),
 
   persist: {
-    key: 'setting-state',
+    key: 'app.setting',
     storage: localStorage,
     pick: [
       'tabTitle',

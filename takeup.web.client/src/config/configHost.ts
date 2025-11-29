@@ -1,6 +1,7 @@
 const host = {
   topic: {
-    api: "https://localhost:7173",
+    api: "https://localhost:50501",
+    web: "https://localhost:50502",
   },
 }
 

@@ -10,7 +10,7 @@ public static class Program
 		DotNetEnv.Env.TraversePath().Load();
 		var builder = new HostApplicationBuilder();
 
-		builder.Config_DBContext_VoteSystem();
+		builder.Config_VoteSystem_DBContext();
 
 		var app = builder.Build();
 		app.Run();
