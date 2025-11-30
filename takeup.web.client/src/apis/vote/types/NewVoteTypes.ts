@@ -7,11 +7,9 @@ export interface NewVoteRequestItem {
   dataId: string
 }
 
-// ----- //
+// -----
 
 export interface NewVoteResponse {
   answerId: number
   answerAt: number
 }
-
-// ----- //

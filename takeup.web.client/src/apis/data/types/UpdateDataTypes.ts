@@ -1,22 +1,20 @@
-export interface AddDataRequest {
-  data: AddDataItemRequest[]
+export interface UpdateDataRequest {
+  data: UpdateDataItemRequest[]
 }
 
-export interface AddDataItemRequest {
+export interface UpdateDataItemRequest {
   message: string
 }
 
-// ----- //
+// -----
 
-export interface AddDataResponse {
+export interface UpdateDataResponse {
   anwerId: number
   anwerAt: number
-  items: AddDataItemResponse[]
+  items: UpdateDataItemResponse[]
 }
 
-export interface AddDataItemResponse {
+export interface UpdateDataItemResponse {
   dataId: number
   message: string
 }
-
-// ----- //

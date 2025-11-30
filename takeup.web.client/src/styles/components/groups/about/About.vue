@@ -65,9 +65,9 @@
   const tab = ref("intro")
 
   function openPolicyActivity() {
-    Dialog.create({
-      component: PolicyActivity,
-    })
+    //Dialog.create({
+    //  component: PolicyActivity,
+    //})
   }
 </script>
 

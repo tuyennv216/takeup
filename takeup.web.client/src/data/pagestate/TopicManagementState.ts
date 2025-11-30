@@ -25,13 +25,11 @@ export const useTopicManagementState = defineStore('topic-management', {
     ],
   }),
   persist: {
-    key: 'page.topic',
+    key: 'page.topicmanagement',
     storage: localStorage,
     pick: [
-      'menuOpened',
-      'sidebarOpened',
-      'showHeader',
-      'showFooter',
+      'search',
+      'items',
     ]
   }
 })

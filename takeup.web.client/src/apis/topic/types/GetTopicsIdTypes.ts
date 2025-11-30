@@ -2,7 +2,7 @@ export interface GetTopicsIdRequest {
   topics: string[]
 }
 
-// ----- //
+// -----
 
 export interface GetTopicsIdResponse {
   answerId: number
@@ -14,5 +14,3 @@ export interface GetTopicsIdResponseTopicItem {
   topicId: number
   topicName: string
 }
-
-// ----- //

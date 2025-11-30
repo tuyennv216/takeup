@@ -5,7 +5,7 @@
     <div class="q-pt-none card-main-section flex items-between">
       <div class="info-description">
         <div class="q-mb-sm">
-          Ứng dụng là một nền tảng trực tuyến để mọi người tìm kiếm có ai khác đang quan tâm đến một chủ đề nào đó không.
+          Ứng dụng là một nền tảng trực tuyến để tìm hiểu và đánh giá về một chủ đề trong cuộc sống.
         </div>
       </div>
     </div>

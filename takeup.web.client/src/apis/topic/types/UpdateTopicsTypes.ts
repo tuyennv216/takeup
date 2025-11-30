@@ -1,17 +1,15 @@
-export interface GetTopicsIdRequest {
-  topics: GetTopicsIdRequestItem[]
+export interface UpdateTopicsRequest {
+  topics: UpdateTopicsRequestItem[]
 }
 
-export interface GetTopicsIdRequestItem {
+export interface UpdateTopicsRequestItem {
   topicId: number
   topicName: string
 }
 
-// ----- //
+// -----
 
-export interface GetTopicsIdResponse {
+export interface UpdateTopicsResponse {
   answerId: number
   answerAt: number
 }
-
-// ----- //

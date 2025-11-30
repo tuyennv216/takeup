@@ -41,7 +41,7 @@
     {
       name: 'topicName',
       required: true,
-      label: 'Tên Chủ Đề',
+      label: 'Chủ Đề',
       align: 'left',
       field: (row: TopicTableItem) => row.topicName,
       sortable: true,
@@ -49,18 +49,10 @@
     {
       name: 'online',
       required: true,
-      label: 'Số người online',
+      label: 'Online',
       align: 'left',
       field: (row: TopicTableItem) => row.online,
       sortable: true,
-    },
-    {
-      name: 'answerAt',
-      label: 'Thời Gian Trả Lời',
-      align: 'left',
-      field: (row: TopicTableItem) => row.answerAt,
-      sortable: true,
-      // format: (val: number) => formatTimestamp(val), // Có thể dùng format hoặc slot body-cell
     },
   ];
 

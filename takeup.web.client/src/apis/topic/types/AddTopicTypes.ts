@@ -2,7 +2,7 @@ export interface AddTopicRequest {
   topics: string[]
 }
 
-// ----- //
+// -----
 
 export interface AddTopicResponse {
   answerId: number
@@ -14,5 +14,3 @@ export interface AddTopicResponseItem {
   topicId: number
   topicName: string
 }
-
-// ----- //

@@ -6,7 +6,7 @@ export interface GetVotesRequestItem {
   topicId: number
 }
 
-// ----- //
+// -----
 
 export interface GetVotesResponse {
   answerId: number
@@ -23,5 +23,3 @@ export interface GetVotesResponseItemData {
   dataId: number
   numberOfVotes: number
 }
-
-// ----- //

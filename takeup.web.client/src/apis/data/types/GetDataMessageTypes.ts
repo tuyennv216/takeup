@@ -6,7 +6,7 @@ export interface GetDataMessageItemRequest {
   dataId: number
 }
 
-// ----- //
+// -----
 
 export interface GetDataMessageResponse {
   anwerId: number
@@ -18,5 +18,3 @@ export interface GetDataMessageItemResponse {
   dataId: number
   message: string
 }
-
-// ----- //

@@ -1,17 +1,15 @@
-export interface UpdateDataRequest {
-  data: UpdateDataItemRequest[]
+export interface AddDataRequest {
+  data: AddDataItemRequest[]
 }
 
-export interface UpdateDataItemRequest {
+export interface AddDataItemRequest {
   dataId: number
   message: string
 }
 
-// ----- //
+// -----
 
-export interface UpdateDataResponse {
+export interface AddDataResponse {
   anwerId: number
   anwerAt: number
 }
-
-// ----- //

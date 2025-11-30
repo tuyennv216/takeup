@@ -6,7 +6,7 @@
       <div class="q-mb-lg">
         <div class="title">Tìm chủ đề</div>
         <div>
-          1. Nhập tên chủ đề vào thanh tìm kiếm và nhấn tìm.
+          1. Tìm kiếm theo tên hoặc mã chủ đề.
         </div>
       </div>
     </div>
