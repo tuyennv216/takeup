@@ -4,6 +4,7 @@
     <q-table :rows="topicManagementState.items"
              :columns="columns"
              row-key="topicId"
+             @row-click="onTopicClick"
              flat bordered>
 
       <template v-slot:body-cell-answerAt="props">
@@ -22,13 +23,11 @@
   import { QTableProps } from 'quasar'
 
   import TopicSearch from '@/features/topic/TopicSearch.vue'
-  import TopicApis from '@/apis/topic/TopicApis'
 
   import { useTopicManagementState } from '@/data/pagestate/TopicManagementState'
   import type { TopicTableItem } from '@/features/topic/TopicTableItem'
 
-  var topicManagementState = useTopicManagementState()
-  // 1. Định nghĩa Columns cho q-table
+  const topicManagementState = useTopicManagementState()
   const columns: QTableProps['columns'] = [
     {
       name: 'topicId',
@@ -56,12 +55,15 @@
     },
   ];
 
-  // Hàm tiện ích để định dạng timestamp (ví dụ: sang định dạng ngày giờ)
+  const onTopicClick = (evt: any, row: TopicTableItem, index: number) => {
+    console.log(row)
+    topicManagementState.selectedItem = row;
+  };
+
   const formatTimestamp = (timestamp: number): string => {
     if (!timestamp) return 'Chưa có';
-    // Chuyển đổi mili giây (giả sử là mili giây) sang đối tượng Date
     const date = new Date(timestamp);
-    return date.toLocaleString(); // Định dạng tùy theo locale
+    return date.toLocaleString();
   };
 
 </script>

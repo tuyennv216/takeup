@@ -1,4 +1,5 @@
 export interface GetVotesRequest {
+  uniqueId: string
   topics: GetVotesRequestItem[]
 }
 
@@ -21,5 +22,6 @@ export interface GetVotesResponseItem {
 
 export interface GetVotesResponseItemData {
   dataId: number
+  dataName: string
   numberOfVotes: number
 }

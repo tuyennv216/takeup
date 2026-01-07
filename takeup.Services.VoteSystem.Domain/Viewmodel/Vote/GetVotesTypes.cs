@@ -31,6 +31,7 @@ namespace takeup.Services.VoteSystem.Domain.Viewmodel.Vote
 		public class VoteItem
 		{
 			public int DataId { get; set; }
+			public string DataName { get; set; } = string.Empty;
 			public int NumberOfVotes {  get; set; }
 		}
 

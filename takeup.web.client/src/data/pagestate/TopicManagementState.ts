@@ -2,13 +2,15 @@ import { defineStore } from 'pinia'
 import type { TopicTableItem } from '@/features/topic/TopicTableItem'
 
 export interface TopicManagementState {
-  search: string
-  items: TopicTableItem[]
+  search: string;
+  selectedItem: TopicTableItem | null;
+  items: TopicTableItem[];
 }
 
 export const useTopicManagementState = defineStore('topic-management', {
   state: (): TopicManagementState => ({
     search: '',
+    selectedItem: null,
     items: [
       {
         topicId: 1,
