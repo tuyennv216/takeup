@@ -1,13 +1,13 @@
 <template>
-  <div class="q-ma-sm">
+  <q-page class="column justify-between">
     <TopicTable />
-    <TopicDetail />
-  </div>
+    <VoteTable />
+  </q-page>
 </template>
 
 <script setup lang="ts">
   import TopicTable from '@/features/topic/TopicTable.vue'
-  import TopicDetail from '@/features/topic/TopicDetail.vue'
+  import VoteTable from '@/features/vote/VoteTable.vue'
 </script>
 
 <style scoped>

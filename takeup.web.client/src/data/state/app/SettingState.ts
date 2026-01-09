@@ -7,8 +7,8 @@ export interface SettingState {
   theme: 'light' | 'dark'
 }
 
-export const useSettingState = defineStore('setting', {
-  state: () => ({
+export const useSettingState = defineStore('app.setting', {
+  state: (): SettingState => ({
     tabTitle: '',
     appTitle: '',
     status: '',

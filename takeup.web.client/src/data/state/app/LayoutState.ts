@@ -8,7 +8,7 @@ export interface LayoutState {
   loading: boolean
 }
 
-export const useLayoutState = defineStore('layout', {
+export const useLayoutState = defineStore('app.layout', {
   state: (): LayoutState => ({
     menuOpened: false,
     sidebarOpened: false,

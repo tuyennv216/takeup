@@ -1,16 +1,21 @@
 import { defineStore } from 'pinia'
 import type { TopicTableItem } from '@/features/topic/TopicTableItem'
+import type { VoteItemModel } from '@/data/model/vote/VoteItemModel'
 
 export interface TopicManagementState {
   search: string;
-  selectedItem: TopicTableItem | null;
+  keyword: string;
+  selectedTopic: TopicTableItem | null;
+  selectedVote: VoteItemModel | null;
   items: TopicTableItem[];
 }
 
-export const useTopicManagementState = defineStore('topic-management', {
+export const useTopicManagementState = defineStore('topic.management', {
   state: (): TopicManagementState => ({
     search: '',
-    selectedItem: null,
+    keyword: '',
+    selectedTopic: null,
+    selectedVote: null,
     items: [
       {
         topicId: 1,

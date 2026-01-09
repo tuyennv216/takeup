@@ -24,7 +24,7 @@
 
   import TopicSearch from '@/features/topic/TopicSearch.vue'
 
-  import { useTopicManagementState } from '@/data/pagestate/TopicManagementState'
+  import { useTopicManagementState } from '@/data/state/page/TopicManagementState'
   import type { TopicTableItem } from '@/features/topic/TopicTableItem'
 
   const topicManagementState = useTopicManagementState()
@@ -56,8 +56,7 @@
   ];
 
   const onTopicClick = (evt: any, row: TopicTableItem, index: number) => {
-    console.log(row)
-    topicManagementState.selectedItem = row;
+    topicManagementState.selectedTopic = row;
   };
 
   const formatTimestamp = (timestamp: number): string => {

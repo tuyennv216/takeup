@@ -43,6 +43,8 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 					await _voteSystemDbContext.Topics.AddRangeAsync(topicAddItems);
 					await _voteSystemDbContext.Data.AddRangeAsync(dataAddItems);
 
+
+
 					_voteSystemDbContext.UpdateRange(topicUpdateItems);
 					_voteSystemDbContext.UpdateRange(dataUpdateItems);
 
