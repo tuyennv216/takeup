@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using takeup.Services.VoteSystem.Domain.Datatype.ModelContexts;
 using takeup.Services.VoteSystem.Domain.Viewmodel.Vote;
 
 namespace takeup.Services.VoteSystem.Domain.Datatype.Models
@@ -41,10 +42,10 @@ namespace takeup.Services.VoteSystem.Domain.Datatype.Models
 
 			Parallel.ForEach(VoteDict, kv =>
 			{
-				if (kv.Value.ExpireTicks > currentTicks)
+				if (kvp.Value.ExpireTicks > currentTicks)
 				{
-					var topicId = kv.Key.TopicId;
-					var dataId = kv.Value.DataId;
+					var topicId = kvp.Key.TopicId;
+					var dataId = kvp.Value.DataId;
 
 					var topicDict = results.GetOrAdd(topicId, new ConcurrentDictionary<int, int>());
 					topicDict.AddOrUpdate(dataId, 1, (key, oldValue) => oldValue + 1);
