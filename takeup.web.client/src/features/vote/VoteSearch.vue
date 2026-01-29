@@ -2,7 +2,7 @@
   <div class="row items-center">
     <!-- <q-input v-model="topicManagementState.keyword" placeholder="Nhập từ khóa..." filled dense class="col" /> -->
     <q-select v-model="topicManagementState.keyword" use-input fill-input hide-selected input-debounce="1000"
-      :options="options" @filter="filterVoteFun" filled dense class="col" placeholder="Nhập để tìm kiếm..."
+      :options="options" @filter="filterVoteFun" filled dense class="col" placeholder="Nhập mô tả..."
       option-label="message" option-value="dataId">
       <template v-slot:no-option>
         <q-item>
@@ -13,16 +13,24 @@
       </template>
     </q-select>
 
-    <q-btn color="primary" label="Vote" @click="onVoteClick" unelevated class="q-mx-sm" />
+    <q-btn color="primary" label="Vote" @click="onVoteClick" :disable="!topicManagementState.keyword" unelevated
+      class="q-mx-sm" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useQuasar } from 'quasar'
+
+import { newVote } from '@/apis/vote/VoteApis';
+import type { NewVoteRequest } from '@/apis/vote/types/NewVoteTypes'
 
 import { useTopicManagementState } from '@/data/state/page/TopicManagementState'
+import { uuidStr } from '@/utilities/common/securities'
 
 const topicManagementState = useTopicManagementState()
+
+const $q = useQuasar()
 
 const mockOptions = [
   {
@@ -71,6 +79,24 @@ const filterVoteFun = async (val: string, update: any) => {
 }
 
 function onVoteClick() {
+  const voteData: NewVoteRequest = {
+    uniqueId: uuidStr("abc"),
+    votes: [
+      {
+        topicId: 1,
+        dataId: 1,
+      }
+    ]
+  }
 
+  newVote(voteData).then(res => {
+    $q.notify({
+      message: 'Bạn đã bình chọn thành công!',
+      color: 'positive',
+      icon: 'check_circle',
+      position: 'top-right',
+      timeout: 5000
+    })
+  })
 }
 </script>

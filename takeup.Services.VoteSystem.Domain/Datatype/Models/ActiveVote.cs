@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using takeup.Services.VoteSystem.Domain.Datatype.ModelContexts;
 using takeup.Services.VoteSystem.Domain.Viewmodel.Vote;
 
 namespace takeup.Services.VoteSystem.Domain.Datatype.Models
@@ -40,7 +39,7 @@ namespace takeup.Services.VoteSystem.Domain.Datatype.Models
 			var currentTicks = DateTime.UtcNow.Ticks;
 			var results = new ConcurrentDictionary<int, ConcurrentDictionary<int, int>>();
 
-			Parallel.ForEach(VoteDict, kv =>
+			Parallel.ForEach(VoteDict, kvp =>
 			{
 				if (kvp.Value.ExpireTicks > currentTicks)
 				{
@@ -53,8 +52,8 @@ namespace takeup.Services.VoteSystem.Domain.Datatype.Models
 			});
 
 			return results.ToDictionary(
-				kv => kv.Key,
-				kv => kv.Value
+				kvp => kvp.Key,
+				kvp => kvp.Value
 					.Select(dataCount => new GetVotesTypes.VoteItem
 					{
 						DataId = dataCount.Key,

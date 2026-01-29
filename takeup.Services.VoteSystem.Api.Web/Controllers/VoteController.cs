@@ -26,6 +26,13 @@ namespace takeup.Services.VoteSystem.Api.Web.Controllers
 		[Route("/vote/new-vote")]
 		public async Task<IActionResult> NewVote([FromBody] NewVoteTypes.Request request)
 		{
+			var IPAddress = Request.HttpContext.Connection.RemoteIpAddress?.ToString() ?? string.Empty;
+			if (IPAddress == string.Empty || IPAddress == null)
+			{
+				return BadRequest();
+			}
+
+			request.IPAddress = IPAddress;
 			var result = await _mediator.Send(request);
 			return Ok(result);
 		}

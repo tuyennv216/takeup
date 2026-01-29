@@ -1,10 +1,11 @@
 export interface NewVoteRequest {
+  uniqueId: string
   votes: NewVoteRequestItem[]
 }
 
 export interface NewVoteRequestItem {
   topicId: number
-  dataId: string
+  dataId: number
 }
 
 // -----

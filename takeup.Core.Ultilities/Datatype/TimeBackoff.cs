@@ -22,6 +22,8 @@
 
 		public bool ShouldExecute()
 		{
+			return true;
+
 			// Khi có request mới
 			if (_requestCount > 0)
 			{

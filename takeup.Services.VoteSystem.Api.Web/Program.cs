@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using takeup.Configuration.Svc.DBContexts;
 using takeup.Configuration.Svc.Services;
-using takeup.Configuration.Svc.Services.Projects;
+using takeup.Configuration.Svc.Contexts;
 
 DotNetEnv.Env.TraversePath().Load();
 
@@ -10,9 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Config_Cors();
 builder.Config_VoteSystem_DBContext();
-builder.Config_VoteSystem_Inject();
 builder.Config_MediatR();
 builder.Config_Serilog();
+
+builder.Add_AppContexts();
 
 // Config log
 builder.Host.Config_Serilog_Host();

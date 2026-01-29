@@ -7,7 +7,7 @@ namespace takeup.Services.VoteSystem.Domain.Viewmodel.Vote
 	{
 		public class Request : CQRSResultCommandBase<Response>
 		{
-			public required string IPAddress { get; set; }
+			public string? IPAddress { get; set; }
 			public required List<VoteItem> Votes { get; set; }
 		}
 
