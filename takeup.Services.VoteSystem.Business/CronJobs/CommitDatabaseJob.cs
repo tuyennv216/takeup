@@ -40,13 +40,16 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 					var dataAddItems = _voteContext.BatchQueue.Data_Add.DequeueAllKeepLast(d => d.DataId);
 					var dataUpdateItems = _voteContext.BatchQueue.Data_Update.DequeueAll();
 
+					var voteAddItems = _voteContext.BatchQueue.Vote_Add.DequeueAllKeepLast(t => t.VoteId);
+					var voteUpdateItems = _voteContext.BatchQueue.Vote_Update.DequeueAll();
+
 					await _voteSystemDbContext.Topics.AddRangeAsync(topicAddItems);
 					await _voteSystemDbContext.Data.AddRangeAsync(dataAddItems);
-
-
+					await _voteSystemDbContext.Vote.AddRangeAsync(voteAddItems);
 
 					_voteSystemDbContext.UpdateRange(topicUpdateItems);
 					_voteSystemDbContext.UpdateRange(dataUpdateItems);
+					_voteSystemDbContext.UpdateRange(voteUpdateItems);
 
 					await _voteSystemDbContext.SaveChangesAsync();
 					await transaction.CommitAsync();
@@ -64,8 +67,8 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 				_readerWriterLockSlim.ExitWriteLock();
 			}
 
-			_voteContext.ActiveVotes.ClearExpiredItems();
-			_voteContext.DataCache.ClearExpiredItems();
+			//_voteContext.ActiveVotes.ClearExpiredItems();
+			//_voteContext.DataCache.ClearExpiredItems();
 
 			var runEndTime = DateTime.UtcNow;
 			var runEstimateTime = 2 * (runEndTime - runStartTime);

@@ -11,5 +11,8 @@ namespace takeup.Services.VoteSystem.Domain.Datatype.Models
 
 		public ConcurrentQueue<Data> Data_Add { get; } = new();
 		public ConcurrentQueue<Data> Data_Update { get; } = new();
+
+		public ConcurrentQueue<Vote> Vote_Add { get; } = new();
+		public ConcurrentQueue<Vote> Vote_Update { get; } = new();
 	}
 }

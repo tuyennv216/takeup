@@ -10,6 +10,7 @@ namespace takeup.Services.VoteSystem.Domain.Database.DbContexts
 
 		public DbSet<Topic> Topics { get; set; }
 		public DbSet<Data> Data { get; set; }
+		public DbSet<Vote> Vote { get; set; }
 		public DbSet<PendingData> PendingData { get; set; }
 		public DbSet<Snapshot> Snapshots { get; set; }
 

@@ -9,6 +9,13 @@ export const useProcessing = defineStore('process.cache', {
     items: {}
   }),
 
+  actions: {
+    shouldRetry: (key: string) => {
+      this.items[key].step === ProcessStep.Failed
+      || this.items[key].step === ProcessStep.Error
+    }
+  },
+
   persist: {
     key: 'process.cache',
     storage: localStorage,

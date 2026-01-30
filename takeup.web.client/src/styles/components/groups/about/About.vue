@@ -41,7 +41,7 @@
         <div class="full-width row q-pl-sm">
           <div style="flex-grow: 1;">
             <div>Chịu trách nhiệm nội dung: Nguyễn Văn Tuyến</div>
-            <div>Địa chỉ: Anh Khánh, Hà Nội</div>
+            <div>Địa chỉ: An Khánh, Hà Nội</div>
             <div>Số điện thoại: 0336654132</div>
             <!--<div>Email: <a href="mailto:lienhe@sanvieclam.pro.vn">lienhe@sanvieclam.pro.vn</a></div>-->
           </div>

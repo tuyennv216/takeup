@@ -35,7 +35,7 @@ function onSearchEnter() {
 
     callApi = true
   }
-  else if (processing.items[topicHash].step === ProcessStep.Failed || processing.items[topicHash].step === ProcessStep.Error) {
+  else if (processing.shouldRetry(topicHash)) {
     processing.items[topicHash].step = ProcessStep.Inprogress
     callApi = true
   }
