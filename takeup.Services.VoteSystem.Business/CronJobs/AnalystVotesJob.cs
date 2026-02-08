@@ -18,11 +18,11 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 
 		public async Task Execute(IJobExecutionContext context)
 		{
-			if (SharedVariables.AnalystVotes_TimeBackoff.ShouldExecute())
-			{
-				SharedVariables.AnalystVotes = _voteContext.ActiveVotes.GetAllTopicVoteCountsConcurrent();
-				_logger.LogInformation("Analyst vote job completed at: {0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
-			}
+			//if (SharedVariables.AnalystVotes_TimeBackoff.ShouldExecute())
+			//{
+			//	SharedVariables.AnalystVotes = _voteContext.ActiveVotes.GetAllTopicVoteCountsConcurrent();
+			//	_logger.LogInformation("Analyst vote job completed at: {0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+			//}
 		}
 	}
 }

@@ -1,4 +1,5 @@
 export interface GetTopicsIdRequest {
+  uniqueId: string
   topics: string[]
 }
 

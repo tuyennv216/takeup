@@ -1,9 +1,6 @@
 export interface GetDataIdRequest {
-  data: GetDataIdItemRequest[]
-}
-
-export interface GetDataIdItemRequest {
-  message: string
+  uniqueId: string
+  dataIds: string[]
 }
 
 // -----

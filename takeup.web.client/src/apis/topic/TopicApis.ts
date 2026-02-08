@@ -3,7 +3,7 @@ import { apiInstance } from '@/config/configAxios'
 
 import type { AddTopicRequest, AddTopicResponse } from '@/apis/topic/types/AddTopicTypes'
 
-import type { GetTopicsIdRequest, GetTopicsIdResponse } from '@/apis/topic/types/GetTopicsIdTypes'
+import type { GetTopicsIdRequest, GetTopicsIdResponse } from '@/apis/topic/types/GetTopicsByNameTypes'
 
 import type { UpdateTopicsRequest, UpdateTopicsResponse } from '@/apis/topic/types/UpdateTopicsTypes'
 

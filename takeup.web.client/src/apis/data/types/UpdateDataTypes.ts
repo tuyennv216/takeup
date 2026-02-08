@@ -1,8 +1,10 @@
 export interface UpdateDataRequest {
+  uniqueId: string
   data: UpdateDataItemRequest[]
 }
 
 export interface UpdateDataItemRequest {
+  dataId: number
   message: string
 }
 

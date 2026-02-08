@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Quartz;
+using System.Security.Cryptography;
 using takeup.Core.Share;
 using takeup.Core.Ultilities.Extensions;
 using takeup.Services.VoteSystem.Domain.Database.DbContexts;
@@ -40,7 +42,7 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 					var dataAddItems = _voteContext.BatchQueue.Data_Add.DequeueAllKeepLast(d => d.DataId);
 					var dataUpdateItems = _voteContext.BatchQueue.Data_Update.DequeueAll();
 
-					var voteAddItems = _voteContext.BatchQueue.Vote_Add.DequeueAllKeepLast(t => t.VoteId);
+					var voteAddItems = _voteContext.BatchQueue.Vote_Add.DequeueAllKeepLast(t => t.IPHash.ToString() + t.TopicId);
 					var voteUpdateItems = _voteContext.BatchQueue.Vote_Update.DequeueAll();
 
 					await _voteSystemDbContext.Topics.AddRangeAsync(topicAddItems);
@@ -52,6 +54,13 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 					_voteSystemDbContext.UpdateRange(voteUpdateItems);
 
 					await _voteSystemDbContext.SaveChangesAsync();
+
+					var runEndTime = DateTime.UtcNow;
+					var runEstimateTime = 2 * (runEndTime - runStartTime);
+					var config = await _voteSystemDbContext.Configs.FirstAsync(c => c.Id == 1);
+					config.AnswerId = RandomNumberGenerator.GetInt32(Int32.MinValue, Int32.MaxValue);
+					config.AnswerAt = runEstimateTime.Ticks;
+
 					await transaction.CommitAsync();
 
 					_logger.LogInformation("Commit database job completed at: {0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
@@ -65,21 +74,6 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 			finally
 			{
 				_readerWriterLockSlim.ExitWriteLock();
-			}
-
-			//_voteContext.ActiveVotes.ClearExpiredItems();
-			//_voteContext.DataCache.ClearExpiredItems();
-
-			var runEndTime = DateTime.UtcNow;
-			var runEstimateTime = 2 * (runEndTime - runStartTime);
-
-			if (context.NextFireTimeUtc.HasValue)
-			{
-				SharedVariables.UpdateCommitDatabaseJob(context.NextFireTimeUtc.Value.Add(runEstimateTime));
-			}
-			else
-			{
-				SharedVariables.UpdateCommitDatabaseJob(DateTime.UtcNow.AddMinutes(5).Add(runEstimateTime));
 			}
 		}
 	}

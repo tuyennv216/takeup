@@ -23,10 +23,10 @@ namespace takeup.Configuration.Svc.CronJobs
 				.ForJob("commit-database-job")
 				.WithCronSchedule("0 0/1 * * * ?")); // 5 phút một lần
 
-			q.AddTrigger(t => t
-				.WithIdentity("analyst-vote-trigger")
-				.ForJob("analyst-vote-job")
-				.WithCronSchedule("30 0/1 * * * ?")); // 1 phút một lần
+			//q.AddTrigger(t => t
+			//	.WithIdentity("analyst-vote-trigger")
+			//	.ForJob("analyst-vote-job")
+			//	.WithCronSchedule("30 0/1 * * * ?")); // 1 phút một lần
 		}
 	}
 }

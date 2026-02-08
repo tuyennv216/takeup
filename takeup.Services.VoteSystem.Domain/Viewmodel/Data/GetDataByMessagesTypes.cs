@@ -21,7 +21,7 @@ namespace takeup.Services.VoteSystem.Domain.Viewmodel.Data
 		{
 			public int DataId { get; set; }
 			public required string Message { get; set; }
-		}`````````
+		}
 
 		public class Validator : AbstractValidator<Request>
 		{

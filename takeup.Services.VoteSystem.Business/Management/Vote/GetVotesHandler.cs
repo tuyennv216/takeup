@@ -3,6 +3,7 @@ using takeup.Core.Share;
 using takeup.Infrastructure.CQRS;
 using takeup.Services.VoteSystem.Domain.Database.DbContexts;
 using takeup.Services.VoteSystem.Domain.Viewmodel.Vote;
+using static takeup.Services.VoteSystem.Domain.Viewmodel.Vote.GetVotesTypes;
 
 namespace takeup.Services.VoteSystem.Business.Management.Vote
 {
@@ -20,17 +21,26 @@ namespace takeup.Services.VoteSystem.Business.Management.Vote
 
 			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
 
+			var items = topicIds.SelectMany(topicId =>
+				_voteSystemReadDbContext.Votes
+					.Where(v => v.TopicId == topicId)
+					.GroupBy(v => new { v.TopicId, v.DataId })
+					.Select(g => new TopicVotesItem
+					{
+						TopicId = g.Key.TopicId,
+						Data = g.Select(d => new GetVotesTypes.VoteItem
+						{
+							DataId = d.DataId,
+							NumberOfVotes = g.Count()
+						}).ToList()
+					})
+			).ToList();
+
 			var result = new GetVotesTypes.Response
 			{
 				AnswerId = config.AnswerId,
 				AnswerAt = config.AnswerAt,
-				Items = topicIds.Select(topicId => new GetVotesTypes.TopicVotesItem
-				{
-					TopicId = topicId,
-					Data = SharedVariables.AnalystVotes.ContainsKey(topicId)
-						? SharedVariables.AnalystVotes[topicId]
-						: new List<GetVotesTypes.VoteItem>()
-				}).ToList()
+				Items = items
 			};
 
 			return result;

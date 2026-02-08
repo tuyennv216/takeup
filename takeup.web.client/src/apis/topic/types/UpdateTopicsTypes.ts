@@ -1,4 +1,5 @@
 export interface UpdateTopicsRequest {
+  uniqueId: string
   topics: UpdateTopicsRequestItem[]
 }
 

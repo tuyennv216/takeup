@@ -3,9 +3,9 @@ import { apiInstance } from '@/config/configAxios'
 
 import type { AddDataRequest, AddDataResponse } from '@/apis/data/types/AddDataTypes'
 
-import type { GetDataIdRequest, GetDataIdResponse } from '@/apis/data/types/GetDataIdTypes'
+import type { GetDataIdRequest, GetDataIdResponse } from '@/apis/data/types/GetDataByIdTypes'
 
-import type { GetDataMessageRequest, GetDataMessageResponse } from '@/apis/data/types/GetDataMessageTypes'
+import type { GetDataMessageRequest, GetDataMessageResponse } from '@/apis/data/types/GetDataByMessageTypes'
 
 import type { UpdateDataRequest, UpdateDataResponse } from '@/apis/data/types/UpdateDataTypes'
 

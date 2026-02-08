@@ -1,10 +1,6 @@
 export interface AddDataRequest {
-  data: AddDataItemRequest[]
-}
-
-export interface AddDataItemRequest {
-  dataId: number
-  message: string
+  uniqueId: string
+  messages: string[]
 }
 
 // -----

@@ -1,10 +1,6 @@
 export interface GetVotesRequest {
   uniqueId: string
-  topics: GetVotesRequestItem[]
-}
-
-export interface GetVotesRequestItem {
-  topicId: number
+  topicIds: number[]
 }
 
 // -----

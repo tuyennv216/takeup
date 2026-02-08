@@ -9,7 +9,6 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\apis\topic\" />
     <Folder Include="src\styles\themes\" />
   </ItemGroup>
 </Project>
