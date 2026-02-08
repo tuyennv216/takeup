@@ -10,7 +10,7 @@ namespace takeup.Services.VoteSystem.Domain.Database
 		{
 			var optionsBuilder = new DbContextOptionsBuilder<VoteSystemDbContext>();
 
-			optionsBuilder.UseSqlite("Data Source=C:\\App10\\database\\votesystem.db");
+			optionsBuilder.UseSqlite("Data Source=D:\\App10\\database\\votesystem.db");
 
 			return new VoteSystemDbContext(optionsBuilder.Options);
 		}

@@ -3,6 +3,7 @@ using takeup.Core.Share;
 using takeup.Infrastructure.CQRS;
 using takeup.Services.VoteSystem.Domain.Database.DbContexts;
 using takeup.Services.VoteSystem.Domain.Datatype.ModelContexts;
+using takeup.Services.VoteSystem.Domain.Viewmodel.Data;
 using takeup.Services.VoteSystem.Domain.Viewmodel.Topic;
 
 namespace takeup.Services.VoteSystem.Business.Management.Topic
@@ -43,10 +44,12 @@ namespace takeup.Services.VoteSystem.Business.Management.Topic
 				_voteContext.BatchQueue.Topic_Add.Enqueue(item);
 			}
 
+			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
+
 			var result = new AddTopicsTypes.Response
 			{
-				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
-				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
+				AnswerId = config.AnswerId,
+				AnswerAt = config.AnswerAt,
 				Items = existsTopic,
 			};
 

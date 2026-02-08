@@ -40,10 +40,12 @@ namespace takeup.Services.VoteSystem.Business.Management.Data
 				_voteContext.BatchQueue.Data_Update.Enqueue(item);
 			}
 
+			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
+
 			var result = new UpdateDataTypes.Response
 			{
-				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
-				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
+				AnswerId = config.AnswerId,
+				AnswerAt = config.AnswerAt,
 			};
 
 			return result;

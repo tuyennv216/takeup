@@ -20,7 +20,7 @@ namespace takeup.Services.VoteSystem.Business.Management.Data
 
 		public override async Task<AddDataTypes.Response> Handle(AddDataTypes.Request request, CancellationToken cancellationToken)
 		{
-			var requestMessages = request.Data.Select(x => x.Message).ToHashSet();
+			var requestMessages = request.Messages.ToHashSet();
 
 			var existsMessage = await _voteSystemReadDbContext.Data
 				.Where(d => requestMessages.Contains(d.Message))
@@ -44,10 +44,12 @@ namespace takeup.Services.VoteSystem.Business.Management.Data
 				Message = d.Message,
 			}).ToList();
 
+			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
+
 			var result = new AddDataTypes.Response
 			{
-				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
-				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
+				AnswerId = config.AnswerId,
+				AnswerAt = config.AnswerAt,
 				Items = resultItems,
 			};
 

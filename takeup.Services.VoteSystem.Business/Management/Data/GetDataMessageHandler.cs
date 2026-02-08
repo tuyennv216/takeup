@@ -7,7 +7,7 @@ using takeup.Services.VoteSystem.Domain.Viewmodel.Data;
 
 namespace takeup.Services.VoteSystem.Business.Management.Data
 {
-	public class GetDataMessageHandler : CQRSResultHandlerBase<GetDataMessageTypes.Request, GetDataMessageTypes.Response>
+	public class GetDataMessageHandler : CQRSResultHandlerBase<GetDataByIdTypes.Request, GetDataByIdTypes.Response>
 	{
 		private readonly VoteSystemReadDbContext _voteSystemReadDbContext;
 
@@ -16,22 +16,24 @@ namespace takeup.Services.VoteSystem.Business.Management.Data
 			this._voteSystemReadDbContext = voteSystemReadDbContext;
 		}
 
-		public override async Task<GetDataMessageTypes.Response> Handle(GetDataMessageTypes.Request request, CancellationToken cancellationToken)
+		public override async Task<GetDataByIdTypes.Response> Handle(GetDataByIdTypes.Request request, CancellationToken cancellationToken)
 		{
-			var requestIds = request.Data.Select(x => x.DataId).ToHashSet();
+			var requestIds = request.DataIds.ToHashSet();
 
 			var exists = await _voteSystemReadDbContext.Data
 				.Where(d => requestIds.Contains(d.DataId))
-				.Select(d => new GetDataMessageTypes.DataResponseItem
+				.Select(d => new GetDataByIdTypes.DataResponseItem
 				{
 					DataId = d.DataId,
 					Message = d.Message,
 				}).ToListAsync();
 
-			var result = new GetDataMessageTypes.Response
+			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
+
+			var result = new GetDataByIdTypes.Response
 			{
-				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
-				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
+				AnswerId = config.AnswerId,
+				AnswerAt = config.AnswerAt,
 				Items = exists,
 			};
 

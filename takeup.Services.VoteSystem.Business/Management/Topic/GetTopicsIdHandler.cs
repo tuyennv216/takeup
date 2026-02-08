@@ -7,7 +7,7 @@ using takeup.Services.VoteSystem.Domain.Viewmodel.Topic;
 
 namespace takeup.Services.VoteSystem.Business.Management.Topic
 {
-	public class GetTopicsIdHandler : CQRSResultHandlerBase<GetTopicsIdTypes.Request, GetTopicsIdTypes.Response>
+	public class GetTopicsIdHandler : CQRSResultHandlerBase<GetTopicsByNameTypes.Request, GetTopicsByNameTypes.Response>
 	{
 		private readonly VoteSystemReadDbContext _voteSystemReadDbContext;
 
@@ -16,22 +16,24 @@ namespace takeup.Services.VoteSystem.Business.Management.Topic
 			this._voteSystemReadDbContext = voteSystemReadDbContext;
 		}
 
-		public override async Task<GetTopicsIdTypes.Response> Handle(GetTopicsIdTypes.Request request, CancellationToken cancellationToken)
+		public override async Task<GetTopicsByNameTypes.Response> Handle(GetTopicsByNameTypes.Request request, CancellationToken cancellationToken)
 		{
 			var topicNames = request.Topics.ToHashSet();
 
 			var exists = await _voteSystemReadDbContext.Topics
 				.Where(t => topicNames.Contains(t.TopicName))
-				.Select(t => new GetTopicsIdTypes.TopicItem
+				.Select(t => new GetTopicsByNameTypes.TopicItem
 				{
 					TopicId = t.TopicId,
 					TopicName = t.TopicName,
 				}).ToListAsync();
 
-			var result = new GetTopicsIdTypes.Response
+			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
+
+			var result = new GetTopicsByNameTypes.Response
 			{
-				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
-				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
+				AnswerId = config.AnswerId,
+				AnswerAt = config.AnswerAt,
 				Items = exists,
 			};
 

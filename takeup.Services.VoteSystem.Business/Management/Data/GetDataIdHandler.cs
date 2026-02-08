@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using takeup.Core.Share;
 using takeup.Infrastructure.CQRS;
 using takeup.Services.VoteSystem.Domain.Database.DbContexts;
-using takeup.Services.VoteSystem.Domain.Datatype.ModelContexts;
 using takeup.Services.VoteSystem.Domain.Viewmodel.Data;
 
 namespace takeup.Services.VoteSystem.Business.Management.Data
 {
-	public class GetDataIdHandler : CQRSResultHandlerBase<GetDataIdTypes.Request, GetDataIdTypes.Response>
+	public class GetDataIdHandler : CQRSResultHandlerBase<GetDataByMessagesTypes.Request, GetDataByMessagesTypes.Response>
 	{
 		private readonly VoteSystemReadDbContext _voteSystemReadDbContext;
 
@@ -16,22 +14,24 @@ namespace takeup.Services.VoteSystem.Business.Management.Data
 			this._voteSystemReadDbContext = voteSystemReadDbContext;
 		}
 
-		public override async Task<GetDataIdTypes.Response> Handle(GetDataIdTypes.Request request, CancellationToken cancellationToken)
+		public override async Task<GetDataByMessagesTypes.Response> Handle(GetDataByMessagesTypes.Request request, CancellationToken cancellationToken)
 		{
-			var requestMessages = request.Data.Select(x => x.Message).ToHashSet();
+			var requestMessages = request.Messages.ToHashSet();
 
 			var exists = await _voteSystemReadDbContext.Data
 				.Where(d => requestMessages.Contains(d.Message))
-				.Select(d => new GetDataIdTypes.DataResponseItem
+				.Select(d => new GetDataByMessagesTypes.DataResponseItem
 				{
 					DataId = d.DataId,
 					Message = d.Message,
 				}).ToListAsync();
 
-			var result = new GetDataIdTypes.Response
+			var config = await _voteSystemReadDbContext.Configs.FirstAsync(c => c.Id == 1);
+
+			var result = new GetDataByMessagesTypes.Response
 			{
-				AnswerId = SharedVariables.CommitDatabaseJob_AnswerId,
-				AnswerAt = SharedVariables.CommitDatabaseJob_NextAnswerTime,
+				AnswerId = config.AnswerId,
+				AnswerAt = config.AnswerAt,
 				Items = exists,
 			};
 

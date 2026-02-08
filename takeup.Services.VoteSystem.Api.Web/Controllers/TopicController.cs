@@ -24,7 +24,7 @@ namespace takeup.Services.VoteSystem.Api.Web.Controllers
 
 		[HttpPost]
 		[Route("/topic/get-topics-id")]
-		public async Task<IActionResult> GetTopicsId([FromBody] GetTopicsIdTypes.Request request)
+		public async Task<IActionResult> GetTopicsId([FromBody] GetTopicsByNameTypes.Request request)
 		{
 			var result = await _mediator.Send(request);
 			return Ok(result);

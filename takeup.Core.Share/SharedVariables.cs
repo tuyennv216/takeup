@@ -6,8 +6,6 @@ namespace takeup.Core.Share
 {
 	public static class SharedVariables
 	{
-		public static int CommitDatabaseJob_AnswerId { get; set; }
-		public static long CommitDatabaseJob_NextAnswerTime { get; set; }
 
 		public static void UpdateCommitDatabaseJob(DateTimeOffset nextAnswerTime)
 		{

@@ -10,6 +10,12 @@
 		private int _requestCount;
 		private int _waitCount;
 		private int _stepSize = 1;
+		private int _maxStepSize = 15;
+
+		public TimeBackoff(int maxStepSize = -1)
+		{
+			if (maxStepSize > 0) _maxStepSize = maxStepSize;
+		}
 
 		public int RequestCount => _requestCount;
 		public int Step => _stepSize;
@@ -38,7 +44,7 @@
 
 			if (_waitCount >= _stepSize)
 			{
-				_stepSize = _stepSize < (int.MaxValue - 2) ? (_stepSize + 2) : int.MaxValue;
+				_stepSize = _stepSize < _maxStepSize ? (_stepSize + 2) : _maxStepSize;
 				_waitCount = 0;
 				return true;
 			}

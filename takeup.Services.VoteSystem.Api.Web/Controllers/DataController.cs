@@ -24,7 +24,7 @@ namespace takeup.Services.VoteSystem.Api.Web.Controllers
 
 		[HttpPost]
 		[Route("/data/get-data-id")]
-		public async Task<IActionResult> GetDataId([FromBody] GetDataIdTypes.Request request)
+		public async Task<IActionResult> GetDataId([FromBody] GetDataByMessagesTypes.Request request)
 		{
 			var result = await _mediator.Send(request);
 			return Ok(result);
@@ -32,7 +32,7 @@ namespace takeup.Services.VoteSystem.Api.Web.Controllers
 
 		[HttpPost]
 		[Route("/data/get-data-message")]
-		public async Task<IActionResult> GetDataMessage([FromBody] GetDataMessageTypes.Request request)
+		public async Task<IActionResult> GetDataMessage([FromBody] GetDataByIdTypes.Request request)
 		{
 			var result = await _mediator.Send(request);
 			return Ok(result);

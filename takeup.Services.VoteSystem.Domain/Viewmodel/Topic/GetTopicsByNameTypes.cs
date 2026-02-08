@@ -3,7 +3,7 @@ using takeup.Infrastructure.CQRS;
 
 namespace takeup.Services.VoteSystem.Domain.Viewmodel.Topic
 {
-	public class GetTopicsIdTypes
+	public class GetTopicsByNameTypes
 	{
 		public class Request : CQRSResultCommandBase<Response>
 		{

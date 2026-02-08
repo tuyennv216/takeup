@@ -1,26 +1,26 @@
 <Solution>
   <Folder Name="/Configuration/">
-    <Project Path="C:/App10/takeup/takeup.Configuration.Env/takeup.Configuration.Env.csproj" />
-    <Project Path="C:/App10/takeup/takeup.Configuration.Svc/takeup.Configuration.Svc.csproj" />
+    <Project Path="D:/App10/takeup/takeup.Configuration.Env/takeup.Configuration.Env.csproj" />
+    <Project Path="D:/App10/takeup/takeup.Configuration.Svc/takeup.Configuration.Svc.csproj" />
   </Folder>
   <Folder Name="/Core/">
-    <Project Path="C:/App10/takeup/takeup.Core.Migration/takeup.Core.Migration.csproj" Id="bc1558b1-d068-4d2e-9724-79ce1343a48b" />
-    <Project Path="C:/App10/takeup/takeup.Core.Scheduler/takeup.Core.Scheduler.csproj" Id="014936ba-adae-4c21-827f-b71c02d1f8a0" />
-    <Project Path="C:/App10/takeup/takeup.Core.Share/takeup.Core.Share.csproj" Id="f4133333-83b8-439f-8206-e537c0279461" />
-    <Project Path="C:/App10/takeup/takeup.Core.Ultilities/takeup.Core.Ultilities.csproj" Id="855f753e-f425-4e42-ac7b-b7ba6341f7ad" />
+    <Project Path="D:/App10/takeup/takeup.Core.Migration/takeup.Core.Migration.csproj" Id="bc1558b1-d068-4d2e-9724-79ce1343a48b" />
+    <Project Path="D:/App10/takeup/takeup.Core.Scheduler/takeup.Core.Scheduler.csproj" Id="014936ba-adae-4c21-827f-b71c02d1f8a0" />
+    <Project Path="D:/App10/takeup/takeup.Core.Share/takeup.Core.Share.csproj" Id="f4133333-83b8-439f-8206-e537c0279461" />
+    <Project Path="D:/App10/takeup/takeup.Core.Ultilities/takeup.Core.Ultilities.csproj" Id="855f753e-f425-4e42-ac7b-b7ba6341f7ad" />
   </Folder>
   <Folder Name="/Infrastructure/">
-    <Project Path="C:/App10/takeup/takeup.Infrastructure.CQRS/takeup.Infrastructure.CQRS.csproj" Id="75f8a7c8-3afd-4493-9b81-16538fea5ff8" />
-    <Project Path="C:/App10/takeup/takeup.Infrastructure.Database/takeup.Infrastructure.Database.csproj" />
+    <Project Path="D:/App10/takeup/takeup.Infrastructure.CQRS/takeup.Infrastructure.CQRS.csproj" Id="75f8a7c8-3afd-4493-9b81-16538fea5ff8" />
+    <Project Path="D:/App10/takeup/takeup.Infrastructure.Database/takeup.Infrastructure.Database.csproj" />
   </Folder>
   <Folder Name="/Services/" />
   <Folder Name="/Services/VoteSystem/">
-    <Project Path="C:/App10/takeup/takeup.Services.VoteSystem.Api.Web/takeup.Services.VoteSystem.Api.Web.csproj" />
-    <Project Path="C:/App10/takeup/takeup.Services.VoteSystem.Business/takeup.Services.VoteSystem.Business.csproj" />
-    <Project Path="C:/App10/takeup/takeup.Services.VoteSystem.Domain/takeup.Services.VoteSystem.Domain.csproj" />
+    <Project Path="D:/App10/takeup/takeup.Services.VoteSystem.Api.Web/takeup.Services.VoteSystem.Api.Web.csproj" />
+    <Project Path="D:/App10/takeup/takeup.Services.VoteSystem.Business/takeup.Services.VoteSystem.Business.csproj" />
+    <Project Path="D:/App10/takeup/takeup.Services.VoteSystem.Domain/takeup.Services.VoteSystem.Domain.csproj" />
   </Folder>
   <Folder Name="/Web/">
-    <Project Path="C:/App10/takeup/takeup.web.client/takeup.web.client.esproj">
+    <Project Path="D:/App10/takeup/takeup.web.client/takeup.web.client.esproj">
       <Build />
       <Deploy />
     </Project>
