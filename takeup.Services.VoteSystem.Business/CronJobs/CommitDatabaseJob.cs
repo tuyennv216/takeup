@@ -53,14 +53,14 @@ namespace takeup.Services.VoteSystem.Business.CronJobs
 					_voteSystemDbContext.UpdateRange(dataUpdateItems);
 					_voteSystemDbContext.UpdateRange(voteUpdateItems);
 
-					await _voteSystemDbContext.SaveChangesAsync();
-
 					var runEndTime = DateTime.UtcNow;
 					var runEstimateTime = 2 * (runEndTime - runStartTime);
 					var config = await _voteSystemDbContext.Configs.FirstAsync(c => c.Id == 1);
 					config.AnswerId = RandomNumberGenerator.GetInt32(Int32.MinValue, Int32.MaxValue);
-					config.AnswerAt = runEstimateTime.Ticks;
+					config.AnswerAt = DateTime.UtcNow.Ticks + runEstimateTime.Ticks;
+					_voteSystemDbContext.Update(config);
 
+					await _voteSystemDbContext.SaveChangesAsync();
 					await transaction.CommitAsync();
 
 					_logger.LogInformation("Commit database job completed at: {0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);

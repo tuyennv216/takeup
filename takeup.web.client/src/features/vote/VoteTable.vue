@@ -55,9 +55,7 @@ watch(
     if (topicItem) {
       const topicDetail = getVotes({
         uniqueId: uuid(),
-        topics: [{
-          topicId: topicItem.topicId,
-        }]
+        topicIds: [topicItem.topicId],
       })
 
       topicDetail.then(res => {

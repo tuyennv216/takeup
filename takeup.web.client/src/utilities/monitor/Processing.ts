@@ -10,9 +10,11 @@ export const useProcessing = defineStore('process.cache', {
   }),
 
   actions: {
-    shouldRetry: (key: string) => {
-      this.items[key].step === ProcessStep.Failed
-      || this.items[key].step === ProcessStep.Error
+    shouldRetry(key: string): boolean {
+      const item = this.items[key];
+      if (!item) return false;
+
+      return item.step === ProcessStep.Failed || item.step === ProcessStep.Error;
     }
   },
 

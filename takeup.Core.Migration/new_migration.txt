@@ -1,13 +1,13 @@
 cd Solution_folder
 
 dotnet ef migrations add Initial --project takeup.Services.VoteSystem.Domain --startup-project takeup.Core.Migration --context VoteSystemDbContext --output-dir Migrations
-
+dotnet ef migrations add Add_config --project takeup.Services.VoteSystem.Domain --startup-project takeup.Core.Migration --context VoteSystemDbContext --output-dir Migrations
 
 
 ---
 
 
-update database
+update database:
 
 dotnet ef database update --project takeup.Services.VoteSystem.Domain --startup-project takeup.Core.Migration --context VoteSystemDbContext
 

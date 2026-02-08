@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using takeup.Services.VoteSystem.Domain.Database.DbContexts;
 
@@ -10,9 +11,11 @@ using takeup.Services.VoteSystem.Domain.Database.DbContexts;
 namespace takeup.Services.VoteSystem.Domain.Migrations
 {
     [DbContext(typeof(VoteSystemDbContext))]
-    partial class VoteSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260208065801_Add_config")]
+    partial class Add_config
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
